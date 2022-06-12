@@ -55,6 +55,16 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Core/Src/main.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/opcua.c</name>
+			<type>1</type>
+			<location>C:/Users/haimr/Desktop/ProgettoII/stm-opc/stm-opc/Core/Src/opcua.c</location>
+		</link>
+		<link>
+			<name>Application/User/open62541.c</name>
+			<type>1</type>
+			<location>C:/Users/haimr/Desktop/ProgettoII/stm-opc/stm-opc/Core/Src/open62541.c</location>
+		</link>
+		<link>
 			<name>Application/User/stm32f7xx_hal_msp.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Core/Src/stm32f7xx_hal_msp.c</locationURI>

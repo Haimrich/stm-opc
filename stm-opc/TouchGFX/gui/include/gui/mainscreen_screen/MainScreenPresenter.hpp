@@ -4,6 +4,11 @@
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
 
+extern "C" 
+{
+#include "opcua.h"
+}
+
 using namespace touchgfx;
 
 class MainScreenView;
@@ -26,6 +31,8 @@ public:
     virtual void deactivate();
 
     virtual ~MainScreenPresenter() {};
+
+    void updateTime(Tempo tempo);
 
 private:
     MainScreenPresenter();

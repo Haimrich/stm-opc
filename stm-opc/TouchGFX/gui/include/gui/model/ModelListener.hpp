@@ -3,6 +3,11 @@
 
 #include <gui/model/Model.hpp>
 
+extern "C" 
+{
+#include "opcua.h"
+}
+
 class ModelListener
 {
 public:
@@ -14,6 +19,9 @@ public:
     {
         model = m;
     }
+
+    virtual void updateTime(Tempo tempo) {}
+
 protected:
     Model* model;
 };

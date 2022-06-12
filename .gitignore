@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Node
+node_modules
+package-lock.json

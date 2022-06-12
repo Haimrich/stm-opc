@@ -61,10 +61,16 @@ _Min_Stack_Size = 0x1000 ;	/* required amount of stack */
 /* Memories definition */
 MEMORY
 {
-  RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 512K
+  RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 496K
   FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 2048K
   QUADSPI (r)    : ORIGIN = 0x90000000, LENGTH = 64M
   SDRAM   (xrw)  : ORIGIN = 0xC0000000,  LENGTH = 16M
+  
+  /* Non-cachable ethernet buffers in SRAM1 */
+  ETH1(xrw)   : ORIGIN = 0x2007C000, LENGTH = 0x80
+  ETH2(xrw)   : ORIGIN = 0x2007C080, LENGTH = 0x80
+  ETH3(xrw)   : ORIGIN = 0x2007C100, LENGTH = 0x17d0 
+  ETH4(xrw)   : ORIGIN = 0x2007D8D0, LENGTH = 0x17d0
 }
 
 /* Sections */
@@ -231,4 +237,10 @@ SECTIONS
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
   } >SDRAM
+  
+  /* Ethernet Sections */
+  .RxDescripSection (NOLOAD) : { *(.RxDescripSection) } >ETH1
+  .TxDescripSection (NOLOAD) : { *(.TxDescripSection) } >ETH2
+  .RxArraySection (NOLOAD) : { *(.RxArraySection) } >ETH3
+  .TxArraySection (NOLOAD) : { *(.TxArraySection) } >ETH4
 }

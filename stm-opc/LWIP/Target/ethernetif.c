@@ -47,7 +47,7 @@
 #define IFNAME1 't'
 
 /* USER CODE BEGIN 1 */
-
+#if false
 /* USER CODE END 1 */
 
 /* Private variables ---------------------------------------------------------*/
@@ -72,6 +72,12 @@ __ALIGN_BEGIN uint8_t Rx_Buff[ETH_RXBUFNB][ETH_RX_BUF_SIZE] __ALIGN_END; /* Ethe
 __ALIGN_BEGIN uint8_t Tx_Buff[ETH_TXBUFNB][ETH_TX_BUF_SIZE] __ALIGN_END; /* Ethernet Transmit Buffer */
 
 /* USER CODE BEGIN 2 */
+#endif
+
+__attribute__ ((section(".RxDescripSection"), used)) ETH_DMADescTypeDef  DMARxDscrTab[ETH_RXBUFNB];
+__attribute__ ((section(".TxDescripSection"), used)) ETH_DMADescTypeDef  DMATxDscrTab[ETH_TXBUFNB];
+__attribute__ ((section(".RxArraySection"), used)) uint8_t Rx_Buff[ETH_RXBUFNB][ETH_RX_BUF_SIZE];
+__attribute__ ((section(".TxArraySection"), used)) uint8_t Tx_Buff[ETH_TXBUFNB][ETH_TX_BUF_SIZE];
 
 /* USER CODE END 2 */
 

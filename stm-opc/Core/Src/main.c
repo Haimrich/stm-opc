@@ -28,6 +28,8 @@
 /* USER CODE BEGIN Includes */
 #include "../mx25l512/mx25l512.h"
 #include "../otm8009a/otm8009a.h"
+
+#include "opcua.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -171,6 +173,13 @@ static uint8_t BSP_QSPI_EnableMemoryMappedMode(QSPI_HandleTypeDef *hqspi);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+// Redirect printf to USART1
+int _write(int file, char *ptr, int len)
+{
+	HAL_StatusTypeDef status = HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, 100);
+	return (status == HAL_OK ? len : 0);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -249,7 +258,7 @@ int main(void)
   opcuaRequestQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &opcuaRequestQueue_attributes);
 
   /* creation of opcuaResultQueue */
-  opcuaResultQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &opcuaResultQueue_attributes);
+  opcuaResultQueueHandle = osMessageQueueNew (2, sizeof(Tempo), &opcuaResultQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
