@@ -33,6 +33,7 @@ public:
     virtual ~MainScreenPresenter() {};
 
     void updateTime(Tempo tempo);
+    void updateGauge(double availMemory);
 
 private:
     MainScreenPresenter();

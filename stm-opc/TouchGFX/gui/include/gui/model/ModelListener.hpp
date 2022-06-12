@@ -21,6 +21,7 @@ public:
     }
 
     virtual void updateTime(Tempo tempo) {}
+    virtual void updateGauge(double availMemory) {}
 
 protected:
     Model* model;

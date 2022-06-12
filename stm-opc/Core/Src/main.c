@@ -258,7 +258,7 @@ int main(void)
   opcuaRequestQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &opcuaRequestQueue_attributes);
 
   /* creation of opcuaResultQueue */
-  opcuaResultQueueHandle = osMessageQueueNew (2, sizeof(Tempo), &opcuaResultQueue_attributes);
+  opcuaResultQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &opcuaResultQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */

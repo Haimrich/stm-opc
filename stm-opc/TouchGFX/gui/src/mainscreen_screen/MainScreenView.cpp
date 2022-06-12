@@ -4,7 +4,6 @@ extern "C"
 {
 #include "opcua.h"
 #include "cmsis_os.h"
-extern osMessageQueueId_t opcuaRequestQueueHandle;
 }
 
 MainScreenView::MainScreenView()
@@ -30,4 +29,8 @@ void MainScreenView::getTime() {
 void MainScreenView::updateTime(Tempo tempo) {
 	digitalClock.setTime24Hour(tempo.hour, tempo.min, tempo.sec);
 	digitalClock.invalidate();
+}
+
+void MainScreenView::updateGauge(double availMemory) {
+    gauge.updateValue(100 - availMemory, 30);
 }

@@ -4,77 +4,74 @@ const { DataSetFieldContentMask, JsonDataSetMessageContentMask, JsonNetworkMessa
 
 const os = require("os");
 
-function available_memory() {
-    // var value = process.memoryUsage().heapUsed / 1000000;
-    const percentageMemUsed = os.freemem() / os.totalmem() * 100.0;
-    return percentageMemUsed;
-}
-
 (async () => {
     try {
 
         const server = new OPCUAServer({
             port: 4840,
             resourcePath: "",
-            hostname: "192.168.1.33",
             buildInfo: {
-                productName: "NodeServer",
+                productName: "OpcUa Server",
                 buildDate: new Date(),
             }
         });
 
         await server.initialize();
 
-
-        //"add a temperature sensor"
-
-        const addressSpace = server.engine.addressSpace;//GESTIONE DEI NODI
+        const addressSpace = server.engine.addressSpace;
         const namespace = addressSpace.getOwnNamespace();
 
-        const devices = namespace.addFolder("ObjectsFolder", { //Folder
-            browseName: "Devices"
+        //Folder
+        const myFolder = namespace.addFolder("ObjectsFolder", {
+            browseName: "MyFolder"
         });
 
-        const sensor = namespace.addObject({ //Object
-            organizedBy: addressSpace.rootFolder.objects.devices, //collega il sensore alla cartella devices
-            browseName: "MySensor"
+        //Object
+        const serverStats = namespace.addObject({
+            organizedBy: addressSpace.rootFolder.objects.myFolder,
+            browseName: "ServerStats"
         })
 
-        const model = namespace.addVariable({ //Variable
-            propertyOf: sensor,
-            browseName: "ModelSensor",
-            dataType: "String",
-            value: {
-                get: function () {
-                    return new opcua.Variant({
-                        dataType: opcua.DataType.String,//BUILT-IN DATA TYPE
-                        value: "One Way Sensor"
-                    })
-                }
-            }
-        });
-
-        const free_memory = namespace.addVariable({ //Variable
-            componentOf: sensor,
-            browseName: "FreeMemory",
+        // Variable
+        const freeMemory = namespace.addVariable({ //Variable
+            componentOf: serverStats,
+            browseName: "AvaiableMemory",
             description:
             {
                 locale: "it-IT",
-                text: "Memoria disponibile"
+                text: "Memoria disponibile nel server"
             },
-            nodeId: "s=Memory", //IDENTIFICATORE CON STRINGA
+            nodeId: "s=AvailableMemory",
             dataType: "Double",
             value: {
-                get: () => new opcua.Variant({ dataType: DataType.Double, value: available_memory() })
+                refreshFunc: function (callback) {
+                    let dataValue = new opcua.DataValue({
+                        value: new opcua.Variant({ 
+                            dataType: opcua.DataType.Double, 
+                            value: available_memory()
+                        }),
+                        sourceTimestamp: new Date()
+                    });
+                    callback(null, dataValue);
+                }
             }
         });
+        
+        setInterval(() => {
+            const availableMemory = available_memory();
+            freeMemory.setValueFromSource({ dataType: "Double", value: availableMemory });
+        }, 1000);
 
         await server.start();
+        console.log("Server Started at: ", server.getEndpointUrl());
 
-        console.log("server started at ", server.getEndpointUrl());
     } catch (err) {
         console.log(err);
         process.exit(1);
     }
 })();
 
+function available_memory() {
+    const percentageMemUsed = os.freemem() / os.totalmem() * 100.0;
+    return percentageMemUsed;
+}

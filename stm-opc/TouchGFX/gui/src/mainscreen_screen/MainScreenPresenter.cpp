@@ -26,3 +26,8 @@ void MainScreenPresenter::updateTime(Tempo tempo)
 {
 	view.updateTime(tempo);
 }
+
+void MainScreenPresenter::updateGauge(double availMemory)
+{
+	view.updateGauge(availMemory);
+}

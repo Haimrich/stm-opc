@@ -19,6 +19,7 @@ public:
 
     virtual void getTime();
     void updateTime(Tempo tempo);
+    void updateGauge(double availMemory);
 
 protected:
 };
