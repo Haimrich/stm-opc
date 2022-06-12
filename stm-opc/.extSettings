@@ -1,0 +1,6 @@
+[ProjectFiles]
+HeaderPath=../Drivers/BSP/Components/Common
+[Groups]
+Application/User/TouchGFX/target=../TouchGFX/target/CortexMMCUInstrumentation.cpp;../TouchGFX/target/Buttons.cpp;../TouchGFX/target/KeySampler.cpp
+Drivers/BSP/Components=../Drivers/BSP/Components/otm8009a/otm8009a.c;../Drivers/BSP/Components/ft6x06/ft6x06.c;
+[Others]

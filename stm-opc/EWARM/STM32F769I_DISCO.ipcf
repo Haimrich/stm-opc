@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<iarProjectConnection name="TouchGFX" oneShot="false">
+    <includePath>
+    </includePath>
+    <asmIncludePath></asmIncludePath>
+    <defines>
+        <define>USE_BPP=16</define>
+    </defines>
+    <asmDefines></asmDefines>
+    <files>
+        <group name="Lib">
+            <path>$PROJ_DIR$/../Middlewares/ST/touchgfx/lib/core/cortex_m7/IAR8.x/touchgfx_core.a</path>
+        </group>
+    </files>
+</iarProjectConnection>

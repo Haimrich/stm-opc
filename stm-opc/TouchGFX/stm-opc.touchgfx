@@ -1,0 +1,232 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "MainScreen",
+        "CanvasBufferSize": 12000,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "backgroundBox",
+            "Width": 800,
+            "Height": 480
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph",
+            "X": 507,
+            "Y": 310,
+            "Width": 251,
+            "Height": 129,
+            "DataSeed": 100161584,
+            "NumberOfValues": 100,
+            "MaxY": 100.0,
+            "Precision": "0.1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "InsertRandomValues": true,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 3,
+                "Color": {
+                  "Red": 20,
+                  "Green": 151,
+                  "Blue": 197
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Gauge",
+            "Name": "gauge",
+            "X": 515,
+            "Y": 25,
+            "Width": 251,
+            "Height": 251,
+            "FileNameBackground": "__designer\\Blue_Gauges_original_gauge_background_style_01.png",
+            "RotationCenterX": 125,
+            "RotationCenterY": 125,
+            "StartAngle": -85,
+            "EndAngle": 85,
+            "RangeMax": 100,
+            "InitialValue": 50,
+            "UseAnimation": true,
+            "Easing": "Cubic",
+            "EasingOption": "InOut",
+            "FileNameNeedle": "__designer\\Blue_Needles_original_gauge_needle_style_01.png",
+            "NeedleRotationCenterX": 11,
+            "NeedleRotationCenterY": 55,
+            "NeedleMovingRenderingAlgorithm": "Nearest-neighbor",
+            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+            "UseArc": true,
+            "FileNameArc": "__designer\\Blue_Gauges_original_gauge_fill_style_01.png",
+            "ArcColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "SetArcPosition": true,
+            "ArcX": 28,
+            "ArcY": 30,
+            "ArcWidth": 196,
+            "ArcHeight": 88,
+            "ArcRadius": 94,
+            "ArcLineWidth": 14,
+            "ArcCapStyle": "Butt"
+          },
+          {
+            "Type": "Button",
+            "Name": "getTimeButton",
+            "X": 151,
+            "Y": 180,
+            "Width": 170,
+            "Height": 60,
+            "Pressed": "__designer\\Blue_Buttons_Round_Edge_small_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_Edge_small.png",
+            "Style": "Style4"
+          },
+          {
+            "Type": "DigitalClock",
+            "Name": "digitalClock",
+            "X": 49,
+            "Y": 59,
+            "Width": 375,
+            "Height": 104,
+            "TextColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextId": "__SingleUse_BM3R",
+            "DisplaySeconds": true,
+            "DisplayLeadingZeroForHourIndicator": true
+          },
+          {
+            "Type": "Line",
+            "Name": "yAxisLine",
+            "X": 500,
+            "Y": 303,
+            "Width": 30,
+            "Height": 163,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "StartX": 8,
+            "StartY": 6,
+            "EndX": 7,
+            "EndY": 138,
+            "LineWidth": 3,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "Line",
+            "Name": "xAxisLine",
+            "X": 496,
+            "Y": 432,
+            "Width": 266,
+            "Height": 34,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "StartX": 8,
+            "StartY": 6,
+            "EndX": 400,
+            "EndY": 6,
+            "LineWidth": 3,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "valueText",
+            "X": 739,
+            "Y": 291,
+            "Width": 19,
+            "Height": 12,
+            "TextId": "__SingleUse_4PND",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "getTimeButton",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "getTimeButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "getTime"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "stm-opc",
+    "Resolution": {
+      "Width": 800,
+      "Height": 480
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "MainScreen",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "24": "LCD24bpp",
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 800,
+        "Height": 480
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommandOverride": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommandOverride": "make -f ../gcc/Makefile flash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32F7",
+    "Platform": "m7",
+    "ProjectFile": "../STM32F769I_DISCO.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": []
+  },
+  "Version": "4.19.1",
+  "CreatedBy": "4.19.1"
+}
