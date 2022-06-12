@@ -194,7 +194,7 @@ public:
         // Increase tickCount if playing
         if (stream.isPlaying)
         {
-            stream.tickCount += HAL::getInstance()->getLCDRefreshCount();
+            stream.tickCount+=HAL::getInstance()->getLCDRefreshCount();
         }
 
         // Invalidate Widget if new frame was decoded
@@ -363,9 +363,9 @@ private:
     {
     public:
         Stream() : frameNumber(0), frameCount(0), tickCount(0), frame_rate_video(0), frame_rate_ticks(0),
-            seek_to_frame(0), skip_frames(0),
-            isActive(false), isPlaying(false), isShowingOneFrame(false),
-            doInvalidateOnNextTick(false), hasMoreFrames(false), repeat(true), doDecode(false) {}
+                   seek_to_frame(0), skip_frames(0),
+                   isActive(false), isPlaying(false), isShowingOneFrame(false),
+                   doInvalidateOnNextTick(false), hasMoreFrames(false), repeat(true), doDecode(false) {}
         uint32_t frameNumber;      // Video frame number shown
         uint32_t frameCount;       // Video frame counter (for frame rate)
         uint32_t tickCount;        // UI frames since play

@@ -41,23 +41,14 @@ public:
     virtual bool decodeFrame(const touchgfx::Rect& area, uint8_t* frameBuffer, uint32_t framebuffer_width);
     virtual bool decodeThumbnail(uint32_t frameno, uint8_t* buffer, uint16_t width, uint16_t height);
     virtual void gotoFrame(uint32_t frameno);
-    virtual uint32_t getCurrentFrameNumber() const
-    {
-        return frameNumber;
-    }
+    virtual uint32_t getCurrentFrameNumber() const { return frameNumber; }
     virtual uint32_t getNumberOfFrames();
     virtual void setRepeatVideo(bool repeat);
     virtual void getVideoInfo(touchgfx::VideoInformation* data);
 
-    void setAVIFileBuffer(uint8_t* buffer, uint32_t size)
-    {
-        aviBuffer = buffer, aviBufferLength = size;
-    }
+    void setAVIFileBuffer(uint8_t* buffer, uint32_t size) { aviBuffer = buffer, aviBufferLength = size; }
 
-    AVIErrors getLastError()
-    {
-        return lastError;
-    }
+    AVIErrors getLastError() { return lastError; }
 private:
     void readVideoHeader();
     void decodeMJPEGFrame(const uint8_t* const mjpgdata, const uint32_t length, uint8_t* buffer, uint16_t width, uint16_t height, uint32_t stride);

@@ -29,7 +29,7 @@ HardwareMJPEGDecoder mjpegdecoder1;
 
 LOCATION_PRAGMA("Video_RGB_Buffer")
 uint32_t videoRGBBuffer[192000] LOCATION_ATTRIBUTE("Video_RGB_Buffer");
-DedicatedBufferController<1, 800, 480, 800 * 2U, Bitmap::RGB565> videoController;
+DedicatedBufferController<1, 800, 480, 800*2U, Bitmap::RGB565> videoController;
 
 //Singleton Factory
 VideoController& VideoController::getInstance()
@@ -43,9 +43,9 @@ using namespace touchgfx;
 
 namespace
 {
-// Use the section "TouchGFX_Framebuffer" in the linker script to specify the placement of the buffer
-LOCATION_PRAGMA("TouchGFX_Framebuffer")
-uint32_t frameBuf[(800 * 480 * 2 + 3) / 4] LOCATION_ATTRIBUTE("TouchGFX_Framebuffer");
+    // Use the section "TouchGFX_Framebuffer" in the linker script to specify the placement of the buffer
+    LOCATION_PRAGMA("TouchGFX_Framebuffer")
+    uint32_t frameBuf[(800 * 480 * 2 + 3) / 4] LOCATION_ATTRIBUTE("TouchGFX_Framebuffer");
 }
 
 void TouchGFXGeneratedHAL::initialize()
@@ -149,7 +149,7 @@ void TouchGFXGeneratedHAL::FlushCache()
     }
 }
 
-extern "C" void videoTaskFunc(void* argument)
+extern "C" void videoTaskFunc(void *argument)
 {
     videoController.decoderTaskEntry();
 }

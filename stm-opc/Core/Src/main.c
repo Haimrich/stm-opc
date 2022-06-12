@@ -21,6 +21,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "libjpeg.h"
+#include "lwip.h"
 #include "app_touchgfx.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -85,6 +86,8 @@ LTDC_HandleTypeDef hltdc;
 
 QSPI_HandleTypeDef hqspi;
 
+UART_HandleTypeDef huart1;
+
 SDRAM_HandleTypeDef hsdram1;
 
 /* Definitions for defaultTask */
@@ -108,6 +111,28 @@ const osThreadAttr_t videoTask_attributes = {
   .stack_size = 1000 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for opcuaTask */
+osThreadId_t opcuaTaskHandle;
+const osThreadAttr_t opcuaTask_attributes = {
+  .name = "opcuaTask",
+  .stack_size = 1024 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for opcuaRequestQueue */
+osMessageQueueId_t opcuaRequestQueueHandle;
+const osMessageQueueAttr_t opcuaRequestQueue_attributes = {
+  .name = "opcuaRequestQueue"
+};
+/* Definitions for opcuaResultQueue */
+osMessageQueueId_t opcuaResultQueueHandle;
+const osMessageQueueAttr_t opcuaResultQueue_attributes = {
+  .name = "opcuaResultQueue"
+};
+/* Definitions for opcuaMutex */
+osMutexId_t opcuaMutexHandle;
+const osMutexAttr_t opcuaMutex_attributes = {
+  .name = "opcuaMutex"
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -124,9 +149,11 @@ static void MX_QUADSPI_Init(void);
 static void MX_DMA2D_Init(void);
 static void MX_DMA_Init(void);
 static void MX_JPEG_Init(void);
+static void MX_USART1_UART_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
+extern void StartOpcuaTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command);
@@ -193,6 +220,7 @@ int main(void)
   MX_LIBJPEG_Init();
   MX_DMA_Init();
   MX_JPEG_Init();
+  MX_USART1_UART_Init();
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
@@ -200,6 +228,9 @@ int main(void)
 
   /* Init scheduler */
   osKernelInitialize();
+  /* Create the mutex(es) */
+  /* creation of opcuaMutex */
+  opcuaMutexHandle = osMutexNew(&opcuaMutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -212,6 +243,13 @@ int main(void)
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
+
+  /* Create the queue(s) */
+  /* creation of opcuaRequestQueue */
+  opcuaRequestQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &opcuaRequestQueue_attributes);
+
+  /* creation of opcuaResultQueue */
+  opcuaResultQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &opcuaResultQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -226,6 +264,9 @@ int main(void)
 
   /* creation of videoTask */
   videoTaskHandle = osThreadNew(videoTaskFunc, NULL, &videoTask_attributes);
+
+  /* creation of opcuaTask */
+  opcuaTaskHandle = osThreadNew(StartOpcuaTask, NULL, &opcuaTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -735,6 +776,41 @@ static void MX_QUADSPI_Init(void)
 }
 
 /**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
   * Enable DMA controller clock
   */
 static void MX_DMA_Init(void)
@@ -818,14 +894,15 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOE_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOI_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOJ_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DSI_RESET_GPIO_Port, DSI_RESET_Pin, GPIO_PIN_SET);
@@ -1488,6 +1565,8 @@ static uint8_t BSP_QSPI_EnableMemoryMappedMode(QSPI_HandleTypeDef *hqspi)
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
 {
+  /* init code for LWIP */
+  MX_LWIP_Init();
   /* USER CODE BEGIN 5 */
   for(;;)
   {
@@ -1559,6 +1638,28 @@ void MPU_Config(void)
   MPU_InitStruct.Size = MPU_REGION_SIZE_16MB;
   MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
   MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /** Initializes and configures the Region and the memory to be protected
+  */
+  MPU_InitStruct.Number = MPU_REGION_NUMBER5;
+  MPU_InitStruct.BaseAddress = 0x2007C000;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_16KB;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /** Initializes and configures the Region and the memory to be protected
+  */
+  MPU_InitStruct.Number = MPU_REGION_NUMBER6;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_256B;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL0;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
   MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
 
   HAL_MPU_ConfigRegion(&MPU_InitStruct);
