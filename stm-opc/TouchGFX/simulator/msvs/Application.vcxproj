@@ -24,6 +24,11 @@
     <ClCompile Include="..\..\generated\gui_generated\src\mainscreen_screen\MainScreenViewBase.cpp"/>
     <ClCompile Include="..\..\gui\src\model\Model.cpp"/>
     <ClCompile Include="..\..\generated\simulator\src\video\SoftwareMJPEGDecoder.cpp"/>
+    <ClCompile Include="..\..\gui\src\debugscreen_screen\DebugScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\debugscreen_screen\DebugScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\debugscreen_screen\DebugScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\ConsoleContainer.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\ConsoleContainerBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -177,6 +182,11 @@
     <ClInclude Include="..\..\gui\include\gui\model\ModelListener.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\SimConstants.hpp"/>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\SoftwareMJPEGDecoder.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\debugscreen_screen\DebugScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\debugscreen_screen\DebugScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\debugscreen_screen\DebugScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\ConsoleContainer.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\ConsoleContainerBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

@@ -8,8 +8,7 @@
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 
 
-MainScreenViewBase::MainScreenViewBase() :
-    buttonCallback(this, &MainScreenViewBase::buttonCallbackHandler)
+MainScreenViewBase::MainScreenViewBase()
 {
 
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
@@ -18,193 +17,367 @@ MainScreenViewBase::MainScreenViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
     backgroundBox.setPosition(0, 0, 800, 480);
-    backgroundBox.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    backgroundBox.setColor(touchgfx::Color::getColorFromRGB(40, 46, 79));
 
-    dynamicGraph.setScale(10);
-    dynamicGraph.setPosition(507, 310, 251, 129);
-    dynamicGraph.setGraphAreaMargin(0, 0, 0, 0);
-    dynamicGraph.setGraphAreaPadding(0, 0, 0, 0);
-    dynamicGraph.setGraphRangeY(0, 100);
+    pipe7.setXY(616, 29);
+    pipe7.setBitmap(touchgfx::Bitmap(BITMAP_PIPE4_ID));
 
-    dynamicGraphLine1Painter.setColor(touchgfx::Color::getColorFromRGB(20, 151, 197));
-    dynamicGraphLine1.setPainter(dynamicGraphLine1Painter);
-    dynamicGraphLine1.setLineWidth(3);
-    dynamicGraph.addGraphElement(dynamicGraphLine1);
+    pipe6.setXY(616, 138);
+    pipe6.setBitmap(touchgfx::Bitmap(BITMAP_PIPE3_ID));
 
-    dynamicGraph.addDataPoint(60.16293945111559f);
-    dynamicGraph.addDataPoint(52.11563139340369f);
-    dynamicGraph.addDataPoint(48.625070811254304f);
-    dynamicGraph.addDataPoint(50.3035908222806f);
-    dynamicGraph.addDataPoint(56.305298744751745f);
-    dynamicGraph.addDataPoint(64.55051973211931f);
-    dynamicGraph.addDataPoint(72.25930204120178f);
-    dynamicGraph.addDataPoint(76.66239436804011f);
-    dynamicGraph.addDataPoint(75.71441257537371f);
-    dynamicGraph.addDataPoint(68.63318630687647f);
-    dynamicGraph.addDataPoint(56.13169763400455f);
-    dynamicGraph.addDataPoint(40.28421171392432f);
-    dynamicGraph.addDataPoint(24.057754732708737f);
-    dynamicGraph.addDataPoint(10.62208039572877f);
-    dynamicGraph.addDataPoint(2.6056186595542314f);
-    dynamicGraph.addDataPoint(1.4783002021373512f);
-    dynamicGraph.addDataPoint(7.211311414411572f);
-    dynamicGraph.addDataPoint(18.296301389294406f);
-    dynamicGraph.addDataPoint(32.118853226462456f);
-    dynamicGraph.addDataPoint(45.5946147720369f);
-    dynamicGraph.addDataPoint(55.91249972365408f);
-    dynamicGraph.addDataPoint(61.2034748501391f);
-    dynamicGraph.addDataPoint(60.97196606820542f);
-    dynamicGraph.addDataPoint(56.18530515520132f);
-    dynamicGraph.addDataPoint(49.00058853064265f);
-    dynamicGraph.addDataPoint(42.19726945687526f);
-    dynamicGraph.addDataPoint(38.455971960846696f);
-    dynamicGraph.addDataPoint(39.661718011245334f);
-    dynamicGraph.addDataPoint(46.40377664654277f);
-    dynamicGraph.addDataPoint(57.796129075668645f);
-    dynamicGraph.addDataPoint(71.66391171181458f);
-    dynamicGraph.addDataPoint(85.05140548031369f);
-    dynamicGraph.addDataPoint(94.92817333466941f);
-    dynamicGraph.addDataPoint(98.92115839339715f);
-    dynamicGraph.addDataPoint(95.89389218076309f);
-    dynamicGraph.addDataPoint(86.23107458947518f);
-    dynamicGraph.addDataPoint(71.75859750288393f);
-    dynamicGraph.addDataPoint(55.318027111006515f);
-    dynamicGraph.addDataPoint(40.09886796940421f);
-    dynamicGraph.addDataPoint(28.89097849087916f);
-    dynamicGraph.addDataPoint(23.438844874090414f);
-    dynamicGraph.addDataPoint(24.054320281351785f);
-    dynamicGraph.addDataPoint(29.581057195472493f);
-    dynamicGraph.addDataPoint(37.71771392999272f);
-    dynamicGraph.addDataPoint(45.619205167684186f);
-    dynamicGraph.addDataPoint(50.62728265041593f);
-    dynamicGraph.addDataPoint(50.95021784304113f);
-    dynamicGraph.addDataPoint(46.12402757547869f);
-    dynamicGraph.addDataPoint(37.141418673447106f);
-    dynamicGraph.addDataPoint(26.216270094422704f);
-    dynamicGraph.addDataPoint(16.241015083565202f);
-    dynamicGraph.addDataPoint(10.069798684473454f);
-    dynamicGraph.addDataPoint(9.803264084877277f);
-    dynamicGraph.addDataPoint(16.250731868997846f);
-    dynamicGraph.addDataPoint(28.702386734351826f);
-    dynamicGraph.addDataPoint(45.06843039391644f);
-    dynamicGraph.addDataPoint(62.35251318604587f);
-    dynamicGraph.addDataPoint(77.34505407934948f);
-    dynamicGraph.addDataPoint(87.36830762865279f);
-    dynamicGraph.addDataPoint(90.89238367764446f);
-    dynamicGraph.addDataPoint(87.87297453825117f);
-    dynamicGraph.addDataPoint(79.72957209442932f);
-    dynamicGraph.addDataPoint(68.97080756283033f);
-    dynamicGraph.addDataPoint(58.55972602194046f);
-    dynamicGraph.addDataPoint(51.17521644744507f);
-    dynamicGraph.addDataPoint(48.550947874445825f);
-    dynamicGraph.addDataPoint(51.05386947917691f);
-    dynamicGraph.addDataPoint(57.60535447076294f);
-    dynamicGraph.addDataPoint(65.9638564948865f);
-    dynamicGraph.addDataPoint(73.29913395678645f);
-    dynamicGraph.addDataPoint(76.91643937056583f);
-    dynamicGraph.addDataPoint(74.95212002453238f);
-    dynamicGraph.addDataPoint(66.8688956397179f);
-    dynamicGraph.addDataPoint(53.62799622872228f);
-    dynamicGraph.addDataPoint(37.494396867445204f);
-    dynamicGraph.addDataPoint(21.521217381045705f);
-    dynamicGraph.addDataPoint(8.837970166929026f);
-    dynamicGraph.addDataPoint(1.9154938562411097f);
-    dynamicGraph.addDataPoint(1.9862997804737539f);
-    dynamicGraph.addDataPoint(8.76124274207045f);
-    dynamicGraph.addDataPoint(20.511150035216247f);
-    dynamicGraph.addDataPoint(34.49299103322727f);
-    dynamicGraph.addDataPoint(47.61613434436793f);
-    dynamicGraph.addDataPoint(57.18578200283035f);
-    dynamicGraph.addDataPoint(61.54209086904951f);
-    dynamicGraph.addDataPoint(60.43932518021158f);
-    dynamicGraph.addDataPoint(55.07329732165241f);
-    dynamicGraph.addDataPoint(47.751681582752894f);
-    dynamicGraph.addDataPoint(41.28939207735821f);
-    dynamicGraph.addDataPoint(38.27863671834048f);
-    dynamicGraph.addDataPoint(40.41398792117637f);
-    dynamicGraph.addDataPoint(48.0393227623309f);
-    dynamicGraph.addDataPoint(60.02907752982107f);
-    dynamicGraph.addDataPoint(74.03426841705016f);
-    dynamicGraph.addDataPoint(87.03422173937929f);
-    dynamicGraph.addDataPoint(96.05986309100658f);
-    dynamicGraph.addDataPoint(98.91212817844365f);
-    dynamicGraph.addDataPoint(94.69994269479025f);
-    dynamicGraph.addDataPoint(84.06607236478283f);
-    dynamicGraph.addDataPoint(69.04524063895104f);
+    pipe5.setXY(487, 111);
+    pipe5.setBitmap(touchgfx::Bitmap(BITMAP_PIPE2_ID));
 
-    gauge.setBackground(touchgfx::Bitmap(BITMAP_BLUE_GAUGES_ORIGINAL_GAUGE_BACKGROUND_STYLE_01_ID));
-    gauge.setPosition(515, 25, 251, 251);
-    gauge.setCenter(125, 125);
-    gauge.setStartEndAngle(-85, 85);
-    gauge.setRange(0, 100);
-    gauge.setValue(50);
-    gauge.setEasingEquation(touchgfx::EasingEquations::cubicEaseInOut);
-    gauge.setNeedle(BITMAP_BLUE_NEEDLES_ORIGINAL_GAUGE_NEEDLE_STYLE_01_ID, 11, 55);
-    gauge.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::NEAREST_NEIGHBOR);
-    gauge.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
-    gauge.setArcVisible();
-    gaugePainter.setBitmap(touchgfx::Bitmap(BITMAP_BLUE_GAUGES_ORIGINAL_GAUGE_FILL_STYLE_01_ID));
-    gauge.getArc().setPainter(gaugePainter);
-    gauge.getArc().setRadius(94);
-    gauge.getArc().setLineWidth(14);
-    gauge.getArc().setCapPrecision(180);
-    gauge.setArcPosition(28, 30, 196, 88);
+    pipe4.setXY(390, 248);
+    pipe4.setBitmap(touchgfx::Bitmap(BITMAP_PIPE1_ID));
 
-    getTimeButton.setXY(151, 180);
-    getTimeButton.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_PRESSED_ID));
-    getTimeButton.setAction(buttonCallback);
+    pipe3.setXY(309, 261);
+    pipe3.setBitmap(touchgfx::Bitmap(BITMAP_PIPE1_ID));
 
-    digitalClock.setPosition(49, 59, 375, 104);
-    digitalClock.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    digitalClock.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BM3R));
-    digitalClock.displayLeadingZeroForHourIndicator(true);
-    digitalClock.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR);
-    digitalClock.setTime24Hour(0, 0, 0);
+    pipe2.setXY(46, 139);
+    pipe2.setBitmap(touchgfx::Bitmap(BITMAP_PIPE1_ON_ID));
 
-    yAxisLine.setPosition(500, 303, 30, 163);
-    yAxisLinePainter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    yAxisLine.setPainter(yAxisLinePainter);
-    yAxisLine.setStart(8, 6);
-    yAxisLine.setEnd(7, 138);
-    yAxisLine.setLineWidth(3);
-    yAxisLine.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
+    pipe1.setXY(157, 140);
+    pipe1.setBitmap(touchgfx::Bitmap(BITMAP_PIPE1_ID));
 
-    xAxisLine.setPosition(496, 432, 266, 34);
-    xAxisLinePainter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    xAxisLine.setPainter(xAxisLinePainter);
-    xAxisLine.setStart(8, 6);
-    xAxisLine.setEnd(400, 6);
-    xAxisLine.setLineWidth(3);
-    xAxisLine.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
+    pump.setXY(355, 245);
+    pump.setBitmap(touchgfx::Bitmap(BITMAP_PUMP_ID));
 
-    valueText.setXY(739, 291);
-    valueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    valueText.setLinespacing(0);
-    valueText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4PND));
+    valve.setXY(114, 116);
+    valve.setBitmap(touchgfx::Bitmap(BITMAP_VALVE_ID));
+
+    boiler.setXY(456, 151);
+    boiler.setProgressIndicatorPosition(3, 14, 76, 129);
+    boiler.setRange(0, 1000);
+    boiler.setDirection(touchgfx::AbstractDirectionProgress::UP);
+    boiler.setBackground(touchgfx::Bitmap(BITMAP_BOILER_ID));
+    boiler.setColor(touchgfx::Color::getColorFromRGB(39, 154, 241));
+    boiler.setValue(500);
+
+    boilerGraph.setScale(100);
+    boilerGraph.setPosition(459, 166, 77, 128);
+    boilerGraph.setGraphAreaMargin(0, 0, 0, 0);
+    boilerGraph.setGraphAreaPadding(0, 0, 0, 0);
+    boilerGraph.setGraphRangeY(0, 1);
+
+    boilerGraphLine1Painter.setColor(touchgfx::Color::getColorFromRGB(235, 240, 246));
+    boilerGraphLine1.setPainter(boilerGraphLine1Painter);
+    boilerGraphLine1.setLineWidth(2);
+    boilerGraph.addGraphElement(boilerGraphLine1);
+
+    boilerGraph.addDataPoint(0.2497209590205522f);
+    boilerGraph.addDataPoint(0.5215739600493172f);
+    boilerGraph.addDataPoint(0.7826534342003966f);
+    boilerGraph.addDataPoint(0.9062955159049476f);
+    boilerGraph.addDataPoint(0.850625324489555f);
+    boilerGraph.addDataPoint(0.6816844180568391f);
+    boilerGraph.addDataPoint(0.5269069695674604f);
+    boilerGraph.addDataPoint(0.48978430947974827f);
+    boilerGraph.addDataPoint(0.5818303570235538f);
+    boilerGraph.addDataPoint(0.716448030253574f);
+    boilerGraph.addDataPoint(0.7685596898418747f);
+    boilerGraph.addDataPoint(0.6606149628624038f);
+    boilerGraph.addDataPoint(0.4181783932037526f);
+    boilerGraph.addDataPoint(0.15815151616284623f);
+    boilerGraph.addDataPoint(0.016798483291634525f);
+    boilerGraph.addDataPoint(0.06422299020900146f);
+    boilerGraph.addDataPoint(0.2609157695854441f);
+    boilerGraph.addDataPoint(0.48456902020254355f);
+    boilerGraph.addDataPoint(0.6094872418741403f);
+    boilerGraph.addDataPoint(0.586646036136677f);
+    boilerGraph.addDataPoint(0.4721987788249582f);
+    boilerGraph.addDataPoint(0.38615201082953077f);
+    boilerGraph.addDataPoint(0.4287836984199247f);
+    boilerGraph.addDataPoint(0.6101104437445952f);
+    boilerGraph.addDataPoint(0.8391474096057407f);
+    boilerGraph.addDataPoint(0.98045712955386f);
+    boilerGraph.addDataPoint(0.9412752105164314f);
+    boilerGraph.addDataPoint(0.7323072427655698f);
+    boilerGraph.addDataPoint(0.46236228870752316f);
+    boilerGraph.addDataPoint(0.2701574119530215f);
+    boilerGraph.addDataPoint(0.23763284720031427f);
+    boilerGraph.addDataPoint(0.3411091494411718f);
+    boilerGraph.addDataPoint(0.47175407533616154f);
+    boilerGraph.addDataPoint(0.5114043915808548f);
+    boilerGraph.addDataPoint(0.41356878532152075f);
+    boilerGraph.addDataPoint(0.23614611843776565f);
+    boilerGraph.addDataPoint(0.10417405908759017f);
+    boilerGraph.addDataPoint(0.1269393630131984f);
+    boilerGraph.addDataPoint(0.32386341150271986f);
+    boilerGraph.addDataPoint(0.607997879269965f);
+    boilerGraph.addDataPoint(0.8383596126169404f);
+    boilerGraph.addDataPoint(0.907326262736798f);
+    boilerGraph.addDataPoint(0.8063804852838687f);
+    boilerGraph.addDataPoint(0.6276537324884592f);
+    boilerGraph.addDataPoint(0.5007023004552384f);
+    boilerGraph.addDataPoint(0.5062537264411034f);
+    boilerGraph.addDataPoint(0.6235855257724647f);
+    boilerGraph.addDataPoint(0.7459829403140998f);
+    boilerGraph.addDataPoint(0.753941005661321f);
+    boilerGraph.addDataPoint(0.5977890694709486f);
+    boilerGraph.addDataPoint(0.3351279216665164f);
+    boilerGraph.addDataPoint(0.09801263044483183f);
+    boilerGraph.addDataPoint(0.010840540001027743f);
+    boilerGraph.addDataPoint(0.11225682549943589f);
+    boilerGraph.addDataPoint(0.33186822050061515f);
+    boilerGraph.addDataPoint(0.5367975019896877f);
+    boilerGraph.addDataPoint(0.6175297648059209f);
+    boilerGraph.addDataPoint(0.5569392332034652f);
+    boilerGraph.addDataPoint(0.437572166899577f);
+    boilerGraph.addDataPoint(0.38284742764954804f);
+
+    mainTank.setXY(219, 94);
+    mainTank.setProgressIndicatorPosition(3, 18, 106, 178);
+    mainTank.setRange(0, 1000);
+    mainTank.setDirection(touchgfx::AbstractDirectionProgress::UP);
+    mainTank.setBackground(touchgfx::Bitmap(BITMAP_MAIN_TANK_ID));
+    mainTank.setColor(touchgfx::Color::getColorFromRGB(39, 154, 241));
+    mainTank.setValue(500);
+
+    mainTankGraph.setScale(100);
+    mainTankGraph.setPosition(222, 111, 108, 178);
+    mainTankGraph.setGraphAreaMargin(0, 0, 0, 0);
+    mainTankGraph.setGraphAreaPadding(0, 0, 0, 0);
+    mainTankGraph.setGraphRangeY(0, 1);
+
+    mainTankGraphLine1Painter.setColor(touchgfx::Color::getColorFromRGB(235, 240, 246));
+    mainTankGraphLine1.setPainter(mainTankGraphLine1Painter);
+    mainTankGraphLine1.setLineWidth(2);
+    mainTankGraph.addGraphElement(mainTankGraphLine1);
+
+    mainTankGraph.addDataPoint(0.2497209590205522f);
+    mainTankGraph.addDataPoint(0.5215739600493172f);
+    mainTankGraph.addDataPoint(0.7826534342003966f);
+    mainTankGraph.addDataPoint(0.9062955159049476f);
+    mainTankGraph.addDataPoint(0.850625324489555f);
+    mainTankGraph.addDataPoint(0.6816844180568391f);
+    mainTankGraph.addDataPoint(0.5269069695674604f);
+    mainTankGraph.addDataPoint(0.48978430947974827f);
+    mainTankGraph.addDataPoint(0.5818303570235538f);
+    mainTankGraph.addDataPoint(0.716448030253574f);
+    mainTankGraph.addDataPoint(0.7685596898418747f);
+    mainTankGraph.addDataPoint(0.6606149628624038f);
+    mainTankGraph.addDataPoint(0.4181783932037526f);
+    mainTankGraph.addDataPoint(0.15815151616284623f);
+    mainTankGraph.addDataPoint(0.016798483291634525f);
+    mainTankGraph.addDataPoint(0.06422299020900146f);
+    mainTankGraph.addDataPoint(0.2609157695854441f);
+    mainTankGraph.addDataPoint(0.48456902020254355f);
+    mainTankGraph.addDataPoint(0.6094872418741403f);
+    mainTankGraph.addDataPoint(0.586646036136677f);
+    mainTankGraph.addDataPoint(0.4721987788249582f);
+    mainTankGraph.addDataPoint(0.38615201082953077f);
+    mainTankGraph.addDataPoint(0.4287836984199247f);
+    mainTankGraph.addDataPoint(0.6101104437445952f);
+    mainTankGraph.addDataPoint(0.8391474096057407f);
+    mainTankGraph.addDataPoint(0.98045712955386f);
+    mainTankGraph.addDataPoint(0.9412752105164314f);
+    mainTankGraph.addDataPoint(0.7323072427655698f);
+    mainTankGraph.addDataPoint(0.46236228870752316f);
+    mainTankGraph.addDataPoint(0.2701574119530215f);
+    mainTankGraph.addDataPoint(0.23763284720031427f);
+    mainTankGraph.addDataPoint(0.3411091494411718f);
+    mainTankGraph.addDataPoint(0.47175407533616154f);
+    mainTankGraph.addDataPoint(0.5114043915808548f);
+    mainTankGraph.addDataPoint(0.41356878532152075f);
+    mainTankGraph.addDataPoint(0.23614611843776565f);
+    mainTankGraph.addDataPoint(0.10417405908759017f);
+    mainTankGraph.addDataPoint(0.1269393630131984f);
+    mainTankGraph.addDataPoint(0.32386341150271986f);
+    mainTankGraph.addDataPoint(0.607997879269965f);
+    mainTankGraph.addDataPoint(0.8383596126169404f);
+    mainTankGraph.addDataPoint(0.907326262736798f);
+    mainTankGraph.addDataPoint(0.8063804852838687f);
+    mainTankGraph.addDataPoint(0.6276537324884592f);
+    mainTankGraph.addDataPoint(0.5007023004552384f);
+    mainTankGraph.addDataPoint(0.5062537264411034f);
+    mainTankGraph.addDataPoint(0.6235855257724647f);
+    mainTankGraph.addDataPoint(0.7459829403140998f);
+    mainTankGraph.addDataPoint(0.753941005661321f);
+    mainTankGraph.addDataPoint(0.5977890694709486f);
+    mainTankGraph.addDataPoint(0.3351279216665164f);
+    mainTankGraph.addDataPoint(0.09801263044483183f);
+    mainTankGraph.addDataPoint(0.010840540001027743f);
+    mainTankGraph.addDataPoint(0.11225682549943589f);
+    mainTankGraph.addDataPoint(0.33186822050061515f);
+    mainTankGraph.addDataPoint(0.5367975019896877f);
+    mainTankGraph.addDataPoint(0.6175297648059209f);
+    mainTankGraph.addDataPoint(0.5569392332034652f);
+    mainTankGraph.addDataPoint(0.437572166899577f);
+    mainTankGraph.addDataPoint(0.38284742764954804f);
+
+    mainTankText.setXY(235, 63);
+    mainTankText.setColor(touchgfx::Color::getColorFromRGB(111, 121, 174));
+    mainTankText.setLinespacing(0);
+    mainTankText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5QSG));
+
+    waterSourceText1.setXY(48, 179);
+    waterSourceText1.setColor(touchgfx::Color::getColorFromRGB(111, 121, 174));
+    waterSourceText1.setLinespacing(0);
+    waterSourceText1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XVK6));
+
+    waterSourceText2.setXY(47, 199);
+    waterSourceText2.setColor(touchgfx::Color::getColorFromRGB(111, 121, 174));
+    waterSourceText2.setLinespacing(0);
+    waterSourceText2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8LSH));
+
+    boilerText.setXY(548, 276);
+    boilerText.setColor(touchgfx::Color::getColorFromRGB(111, 121, 174));
+    boilerText.setLinespacing(0);
+    boilerText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2ZVO));
+
+    mainTankTempText.setPosition(354, 112, 100, 18);
+    mainTankTempText.setColor(touchgfx::Color::getColorFromRGB(235, 240, 246));
+    mainTankTempText.setLinespacing(0);
+    mainTankTempTextBuffer[0] = 0;
+    mainTankTempText.setWildcard(mainTankTempTextBuffer);
+    mainTankTempText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4C4U));
+
+    mainTankTempIcon.setXY(340, 114);
+    mainTankTempIcon.setBitmap(touchgfx::Bitmap(BITMAP_THERMOMETER_ICON_ID));
+
+    boilerTempIcon.setXY(438, 172);
+    boilerTempIcon.setBitmap(touchgfx::Bitmap(BITMAP_THERMOMETER_ICON_ID));
+
+    boilerTempText.setPosition(342, 169, 90, 18);
+    boilerTempText.setColor(touchgfx::Color::getColorFromRGB(235, 240, 246));
+    boilerTempText.setLinespacing(0);
+    boilerTempTextBuffer[0] = 0;
+    boilerTempText.setWildcard(boilerTempTextBuffer);
+    boilerTempText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SO94));
+
+    pressureText.setPosition(500, 33, 100, 18);
+    pressureText.setColor(touchgfx::Color::getColorFromRGB(235, 240, 246));
+    pressureText.setLinespacing(0);
+    pressureTextBuffer[0] = 0;
+    pressureText.setWildcard(pressureTextBuffer);
+    pressureText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6HH0));
+
+    gaugePart.setXY(544, 97);
+    gaugePart.setBitmap(touchgfx::Bitmap(BITMAP_GAUGEPART_ID));
+
+    pressureGauge.setBackground(touchgfx::Bitmap(BITMAP_GAUGE_ID));
+    pressureGauge.setPosition(527, 59, 46, 46);
+    pressureGauge.setCenter(23, 23);
+    pressureGauge.setStartEndAngle(-175, 175);
+    pressureGauge.setRange(500, 4000);
+    pressureGauge.setValue(2500);
+    pressureGauge.setEasingEquation(touchgfx::EasingEquations::cubicEaseInOut);
+    pressureGauge.setNeedle(BITMAP_NEEDLE_ID, 3, 10);
+    pressureGauge.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::NEAREST_NEIGHBOR);
+    pressureGauge.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    pressureGauge.setArcVisible();
+    pressureGaugePainter.setColor(touchgfx::Color::getColorFromRGB(200, 205, 219));
+    pressureGauge.getArc().setPainter(pressureGaugePainter);
+    pressureGauge.getArc().setRadius(14);
+    pressureGauge.getArc().setLineWidth(4);
+    pressureGauge.getArc().setCapPrecision(180);
+
+    turbine.setXY(603, 91);
+    turbine.setBitmap(touchgfx::Bitmap(BITMAP_TURBINE_ID));
+
+    energyText.setPosition(676, 66, 100, 18);
+    energyText.setColor(touchgfx::Color::getColorFromRGB(235, 240, 246));
+    energyText.setLinespacing(0);
+    energyTextBuffer[0] = 0;
+    energyText.setWildcard(energyTextBuffer);
+    energyText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_G52X));
+
+    energyIcon.setXY(660, 68);
+    energyIcon.setBitmap(touchgfx::Bitmap(BITMAP_ENERGY_ICON_ID));
+
+    turbineText.setXY(660, 161);
+    turbineText.setColor(touchgfx::Color::getColorFromRGB(111, 121, 174));
+    turbineText.setLinespacing(0);
+    turbineText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YLIN));
+
+    turbineHead.setXY(616, 101);
+    turbineHead.setBitmaps(BITMAP_TURBINE_HEAD_01_ID, BITMAP_TURBINE_HEAD_02_ID);
+    turbineHead.setUpdateTicksInterval(6);
+    turbineHead.startAnimation(false, true, true);
+
+    logosImage.setXY(657, 237);
+    logosImage.setBitmap(touchgfx::Bitmap(BITMAP_LOGHI_ID));
+
+    console.setXY(0, 308);
+
+    fire.setXY(483, 316);
+    fire.setBitmap(touchgfx::Bitmap(BITMAP_FIRE_ID));
+
+    processorIcon.setXY(713, 17);
+    processorIcon.setBitmap(touchgfx::Bitmap(BITMAP_PROCESSOR_ID));
+
+    image1.setXY(35, 18);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_CALENDAR_ID));
+
+    image2.setXY(166, 19);
+    image2.setBitmap(touchgfx::Bitmap(BITMAP_CLOCK_ID));
+
+    dateText.setPosition(54, 17, 100, 18);
+    dateText.setColor(touchgfx::Color::getColorFromRGB(154, 171, 196));
+    dateText.setLinespacing(0);
+    dateTextBuffer[0] = 0;
+    dateText.setWildcard(dateTextBuffer);
+    dateText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_L1QM));
+
+    clockText.setPosition(188, 17, 120, 18);
+    clockText.setColor(touchgfx::Color::getColorFromRGB(154, 171, 196));
+    clockText.setLinespacing(0);
+    clockTextBuffer[0] = 0;
+    clockText.setWildcard(clockTextBuffer);
+    clockText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HEXI));
+
+    cpuUsageText.setXY(735, 16);
+    cpuUsageText.setColor(touchgfx::Color::getColorFromRGB(154, 171, 196));
+    cpuUsageText.setLinespacing(0);
+    cpuUsageTextBuffer[0] = 0;
+    cpuUsageText.setWildcard(cpuUsageTextBuffer);
+    cpuUsageText.resizeToCurrentText();
+    cpuUsageText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8QM6));
 
     add(__background);
     add(backgroundBox);
-    add(dynamicGraph);
-    add(gauge);
-    add(getTimeButton);
-    add(digitalClock);
-    add(yAxisLine);
-    add(xAxisLine);
-    add(valueText);
+    add(pipe7);
+    add(pipe6);
+    add(pipe5);
+    add(pipe4);
+    add(pipe3);
+    add(pipe2);
+    add(pipe1);
+    add(pump);
+    add(valve);
+    add(boiler);
+    add(boilerGraph);
+    add(mainTank);
+    add(mainTankGraph);
+    add(mainTankText);
+    add(waterSourceText1);
+    add(waterSourceText2);
+    add(boilerText);
+    add(mainTankTempText);
+    add(mainTankTempIcon);
+    add(boilerTempIcon);
+    add(boilerTempText);
+    add(pressureText);
+    add(gaugePart);
+    add(pressureGauge);
+    add(turbine);
+    add(energyText);
+    add(energyIcon);
+    add(turbineText);
+    add(turbineHead);
+    add(logosImage);
+    add(console);
+    add(fire);
+    add(processorIcon);
+    add(image1);
+    add(image2);
+    add(dateText);
+    add(clockText);
+    add(cpuUsageText);
 }
 
 void MainScreenViewBase::setupScreen()
 {
-
-}
-
-void MainScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
-{
-    if (&src == &getTimeButton)
-    {
-        //getTimeButton
-        //When getTimeButton clicked call virtual function
-        //Call getTime
-        getTime();
-    }
+    console.initialize();
 }

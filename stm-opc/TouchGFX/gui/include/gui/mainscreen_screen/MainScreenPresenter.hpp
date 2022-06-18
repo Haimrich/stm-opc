@@ -32,8 +32,18 @@ public:
 
     virtual ~MainScreenPresenter() {};
 
-    void updateTime(Tempo tempo);
-    void updateGauge(double availMemory);
+    void updateMainTankTemp(double value);
+    void updateMainTankLevel(double value);
+    void updateBoilerTemp(double value);
+    void updateBoilerLevel(double value);
+    void updateBoilerPressure(double value);
+    void updateTurbinePower(double value);
+    void updateValveStatus(bool value);
+    void updatePumpStatus(bool value);
+    void updateFireStatus(bool value);
+
+    void updateCurrentTime(Tempo tempo);
+    void consolePrint();
 
 private:
     MainScreenPresenter();

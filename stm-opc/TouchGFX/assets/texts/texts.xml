@@ -6,8 +6,83 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_4PND" Alignment="Right" TypographyId="Small">
-        <Translation Language="GB">001</Translation>
+      <Text Id="__SingleUse_V34E" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_7HOC" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_1CKO" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_R2FF" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_9UB8" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_1EOB" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_0KBR" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_EX5Q" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_WKBQ" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_H6NY" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_9WFZ" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_7NIY" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Server RAM Usage</Translation>
+      </Text>
+      <Text Id="__SingleUse_8QM6" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">&lt;value&gt;0 %</Translation>
+      </Text>
+      <Text Id="__SingleUse_HEXI" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">&lt;value&gt; UTC</Translation>
+      </Text>
+      <Text Id="__SingleUse_L1QM" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_P3TH" Alignment="Left" TypographyId="Console">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_77SV" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">Console</Translation>
+      </Text>
+      <Text Id="__SingleUse_YLIN" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">Turbine</Translation>
+      </Text>
+      <Text Id="__SingleUse_G52X" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">&lt;value&gt; KW</Translation>
+      </Text>
+      <Text Id="__SingleUse_6HH0" Alignment="Center" TypographyId="Description">
+        <Translation Language="GB">&lt;value&gt; bar</Translation>
+      </Text>
+      <Text Id="__SingleUse_SO94" Alignment="Right" TypographyId="Description">
+        <Translation Language="GB">&lt;value&gt; °C</Translation>
+      </Text>
+      <Text Id="__SingleUse_4C4U" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">&lt;value&gt; °C</Translation>
+      </Text>
+      <Text Id="__SingleUse_2ZVO" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">Boiler</Translation>
+      </Text>
+      <Text Id="__SingleUse_8LSH" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">Source</Translation>
+      </Text>
+      <Text Id="__SingleUse_XVK6" Alignment="Left" TypographyId="Description">
+        <Translation Language="GB">Water</Translation>
+      </Text>
+      <Text Id="__SingleUse_5QSG" Alignment="Center" TypographyId="Description">
+        <Translation Language="GB">Main Tank</Translation>
       </Text>
       <Text Id="__SingleUse_BM3R" Alignment="Center" TypographyId="Clock">
         <Translation Language="GB">&lt;&gt;</Translation>
@@ -19,5 +94,7 @@
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Clock" Font="verdana.ttf" Size="70" Bpp="4" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789 :APM" />
+    <Typography Id="Description" Font="Montserrat-Bold.ttf" Size="15" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789.:/" />
+    <Typography Id="Console" Font="FiraCode-SemiBold.ttf" Size="8" Bpp="4" Direction="LTR" FallbackCharacter=" " WildcardCharacters="[ ].,-_?!&lt;&gt;òàùèé&quot;':;( )/&amp;$+% " WildcardCharacterRanges="a-z,A-Z,0-9" />
   </Typographies>
 </TextDatabase>

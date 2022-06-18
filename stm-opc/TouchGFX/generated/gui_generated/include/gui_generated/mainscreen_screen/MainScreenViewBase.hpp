@@ -8,15 +8,17 @@
 #include <mvp/View.hpp>
 #include <gui/mainscreen_screen/MainScreenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 #include <touchgfx/widgets/graph/GraphScroll.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
-#include <touchgfx/widgets/Gauge.hpp>
-#include <touchgfx/widgets/canvas/PainterRGB565Bitmap.hpp>
-#include <touchgfx/widgets/Button.hpp>
-#include <touchgfx/containers/clock/DigitalClock.hpp>
-#include <touchgfx/widgets/canvas/Line.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/Gauge.hpp>
+#include <touchgfx/widgets/AnimatedImage.hpp>
+#include <gui/containers/ConsoleContainer.hpp>
+#include <touchgfx/mixins/ClickListener.hpp>
 
 class MainScreenViewBase : public touchgfx::View<MainScreenPresenter>
 {
@@ -24,14 +26,6 @@ public:
     MainScreenViewBase();
     virtual ~MainScreenViewBase() {}
     virtual void setupScreen();
-
-    /*
-     * Virtual Action Handlers
-     */
-    virtual void getTime()
-    {
-        // Override and implement this function in MainScreen
-    }
 
 protected:
     FrontendApplication& application() {
@@ -43,30 +37,69 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box backgroundBox;
-    touchgfx::GraphScroll<100> dynamicGraph;
-    touchgfx::GraphElementLine dynamicGraphLine1;
-    touchgfx::PainterRGB565 dynamicGraphLine1Painter;
-    touchgfx::Gauge gauge;
-    touchgfx::PainterRGB565Bitmap gaugePainter;
-    touchgfx::Button getTimeButton;
-    touchgfx::DigitalClock digitalClock;
-    touchgfx::Line yAxisLine;
-    touchgfx::PainterRGB565 yAxisLinePainter;
-    touchgfx::Line xAxisLine;
-    touchgfx::PainterRGB565 xAxisLinePainter;
-    touchgfx::TextArea valueText;
+    touchgfx::Image pipe7;
+    touchgfx::Image pipe6;
+    touchgfx::Image pipe5;
+    touchgfx::Image pipe4;
+    touchgfx::Image pipe3;
+    touchgfx::Image pipe2;
+    touchgfx::Image pipe1;
+    touchgfx::ClickListener< touchgfx::Image > pump;
+    touchgfx::ClickListener< touchgfx::Image > valve;
+    touchgfx::BoxProgress boiler;
+    touchgfx::GraphScroll<60> boilerGraph;
+    touchgfx::GraphElementLine boilerGraphLine1;
+    touchgfx::PainterRGB565 boilerGraphLine1Painter;
+    touchgfx::BoxProgress mainTank;
+    touchgfx::GraphScroll<60> mainTankGraph;
+    touchgfx::GraphElementLine mainTankGraphLine1;
+    touchgfx::PainterRGB565 mainTankGraphLine1Painter;
+    touchgfx::TextArea mainTankText;
+    touchgfx::TextArea waterSourceText1;
+    touchgfx::TextArea waterSourceText2;
+    touchgfx::TextArea boilerText;
+    touchgfx::TextAreaWithOneWildcard mainTankTempText;
+    touchgfx::Image mainTankTempIcon;
+    touchgfx::Image boilerTempIcon;
+    touchgfx::TextAreaWithOneWildcard boilerTempText;
+    touchgfx::TextAreaWithOneWildcard pressureText;
+    touchgfx::Image gaugePart;
+    touchgfx::Gauge pressureGauge;
+    touchgfx::PainterRGB565 pressureGaugePainter;
+    touchgfx::Image turbine;
+    touchgfx::TextAreaWithOneWildcard energyText;
+    touchgfx::Image energyIcon;
+    touchgfx::TextArea turbineText;
+    touchgfx::AnimatedImage turbineHead;
+    touchgfx::Image logosImage;
+    ConsoleContainer console;
+    touchgfx::ClickListener< touchgfx::Image > fire;
+    touchgfx::Image processorIcon;
+    touchgfx::Image image1;
+    touchgfx::Image image2;
+    touchgfx::TextAreaWithOneWildcard dateText;
+    touchgfx::TextAreaWithOneWildcard clockText;
+    touchgfx::TextAreaWithOneWildcard cpuUsageText;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t MAINTANKTEMPTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar mainTankTempTextBuffer[MAINTANKTEMPTEXT_SIZE];
+    static const uint16_t BOILERTEMPTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar boilerTempTextBuffer[BOILERTEMPTEXT_SIZE];
+    static const uint16_t PRESSURETEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar pressureTextBuffer[PRESSURETEXT_SIZE];
+    static const uint16_t ENERGYTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar energyTextBuffer[ENERGYTEXT_SIZE];
+    static const uint16_t DATETEXT_SIZE = 12;
+    touchgfx::Unicode::UnicodeChar dateTextBuffer[DATETEXT_SIZE];
+    static const uint16_t CLOCKTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar clockTextBuffer[CLOCKTEXT_SIZE];
+    static const uint16_t CPUUSAGETEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cpuUsageTextBuffer[CPUUSAGETEXT_SIZE];
 
 private:
-
-    /*
-     * Callback Declarations
-     */
-    touchgfx::Callback<MainScreenViewBase, const touchgfx::AbstractButton&> buttonCallback;
-
-    /*
-     * Callback Handler Declarations
-     */
-    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
     /*
      * Canvas Buffer Size

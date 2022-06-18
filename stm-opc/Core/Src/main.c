@@ -30,6 +30,7 @@
 #include "../otm8009a/otm8009a.h"
 
 #include "opcua.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -177,6 +178,14 @@ static uint8_t BSP_QSPI_EnableMemoryMappedMode(QSPI_HandleTypeDef *hqspi);
 int _write(int file, char *ptr, int len)
 {
 	HAL_StatusTypeDef status = HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, 100);
+
+	osMutexAcquire(opcuaMutexHandle, osWaitForever);
+	strncpy(gData.consoleBuffer, ptr, CONSOLE_BUFFER_SIZE);
+	osMutexRelease(opcuaMutexHandle);
+
+	uint8_t message = CONSOLE_NEW_MESSAGE;
+	osMessageQueuePut(opcuaResultQueueHandle, &message, 0, 100);
+
 	return (status == HAL_OK ? len : 0);
 }
 
@@ -255,10 +264,10 @@ int main(void)
 
   /* Create the queue(s) */
   /* creation of opcuaRequestQueue */
-  opcuaRequestQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &opcuaRequestQueue_attributes);
+  opcuaRequestQueueHandle = osMessageQueueNew (16, sizeof(uint8_t), &opcuaRequestQueue_attributes);
 
   /* creation of opcuaResultQueue */
-  opcuaResultQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &opcuaResultQueue_attributes);
+  opcuaResultQueueHandle = osMessageQueueNew (16, sizeof(uint8_t), &opcuaResultQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */

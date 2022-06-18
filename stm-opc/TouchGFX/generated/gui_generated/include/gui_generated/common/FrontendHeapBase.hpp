@@ -14,6 +14,8 @@
 
 #include <gui/mainscreen_screen/MainScreenView.hpp>
 #include <gui/mainscreen_screen/MainScreenPresenter.hpp>
+#include <gui/debugscreen_screen/DebugScreenView.hpp>
+#include <gui/debugscreen_screen/DebugScreenPresenter.hpp>
 
 
 /**
@@ -37,7 +39,8 @@ public:
      * @note All view types used in the application MUST be added to this list!
      */
     typedef touchgfx::meta::TypeList< MainScreenView,
-            touchgfx::meta::Nil
+            touchgfx::meta::TypeList< DebugScreenView,
+            touchgfx::meta::Nil >
             > GeneratedViewTypes;
 
     /**
@@ -50,7 +53,8 @@ public:
      * @note All presenter types used in the application MUST be added to this list!
      */
     typedef touchgfx::meta::TypeList< MainScreenPresenter,
-            touchgfx::meta::Nil
+            touchgfx::meta::TypeList< DebugScreenPresenter,
+            touchgfx::meta::Nil >
             > GeneratedPresenterTypes;
 
     /**

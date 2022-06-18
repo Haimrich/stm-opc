@@ -11,6 +11,8 @@
 #include <platform/driver/lcd/LCD16bpp.hpp>
 #include <gui/mainscreen_screen/MainScreenView.hpp>
 #include <gui/mainscreen_screen/MainScreenPresenter.hpp>
+#include <gui/debugscreen_screen/DebugScreenView.hpp>
+#include <gui/debugscreen_screen/DebugScreenPresenter.hpp>
 
 using namespace touchgfx;
 

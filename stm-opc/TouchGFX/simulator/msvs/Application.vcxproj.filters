@@ -184,6 +184,30 @@
     <Filter Include="Header Files\generated\simulator\include\simulator\video">
       <UniqueIdentifier>3F4485C0-79A0-F539-A976-5B7B7627B845</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\containers">
+      <UniqueIdentifier>34AC83A9-BEFF-8455-7CFF-A2B2D4DC5A2B</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\containers">
+      <UniqueIdentifier>ED835AF9-BB5E-AD49-891C-26270DBE45FC</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\debugscreen_screen">
+      <UniqueIdentifier>525666E8-6596-48DC-99F4-3DBD96F3891E</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\debugscreen_screen">
+      <UniqueIdentifier>35A1CDD1-C1A4-7F8C-7DF7-807ED6177C2C</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\debugscreen_screen">
+      <UniqueIdentifier>93FA4529-2205-53D1-2A4C-82FDFD080891</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\debugscreen_screen">
+      <UniqueIdentifier>A528237C-B0ED-3A48-7922-CC0B7557F96A</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\containers">
+      <UniqueIdentifier>0FA57C8C-4AEC-FB43-E0A3-D533B37D92AF</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\containers">
+      <UniqueIdentifier>A404846D-DFD3-A4C8-8B19-71EFB35E4A8C</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -224,6 +248,21 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\simulator\src\video\SoftwareMJPEGDecoder.cpp">
       <Filter>Source Files\generated\simulator\video</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\debugscreen_screen\DebugScreenPresenter.cpp">
+      <Filter>Source Files\gui\debugscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\debugscreen_screen\DebugScreenView.cpp">
+      <Filter>Source Files\gui\debugscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\debugscreen_screen\DebugScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\debugscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\containers\ConsoleContainer.cpp">
+      <Filter>Source Files\gui\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\ConsoleContainerBase.cpp">
+      <Filter>Source Files\generated\gui_generated\containers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -675,6 +714,21 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\SoftwareMJPEGDecoder.hpp">
       <Filter>Header Files\generated\simulator\include\simulator\video</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\debugscreen_screen\DebugScreenPresenter.hpp">
+      <Filter>Header Files\gui\debugscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\debugscreen_screen\DebugScreenView.hpp">
+      <Filter>Header Files\gui\debugscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\debugscreen_screen\DebugScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\debugscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\containers\ConsoleContainer.hpp">
+      <Filter>Header Files\gui\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\ConsoleContainerBase.hpp">
+      <Filter>Header Files\generated\gui_generated\containers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

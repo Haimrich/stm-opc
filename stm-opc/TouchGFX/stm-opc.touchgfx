@@ -9,72 +9,564 @@
             "Type": "Box",
             "Name": "backgroundBox",
             "Width": 800,
-            "Height": 480
+            "Height": 480,
+            "LockPosition": true,
+            "Color": {
+              "Red": 40,
+              "Green": 46,
+              "Blue": 79
+            }
+          },
+          {
+            "Type": "Image",
+            "Name": "pipe7",
+            "X": 616,
+            "Y": 29,
+            "Width": 20,
+            "Height": 104,
+            "RelativeFilename": "pipe4.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "pipe6",
+            "X": 616,
+            "Y": 138,
+            "Width": 20,
+            "Height": 104,
+            "RelativeFilename": "pipe3.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "pipe5",
+            "X": 487,
+            "Y": 111,
+            "Width": 142,
+            "Height": 61,
+            "RelativeFilename": "pipe2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "pipe4",
+            "X": 390,
+            "Y": 248,
+            "Width": 78,
+            "Height": 20,
+            "RelativeFilename": "pipe1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "pipe3",
+            "X": 309,
+            "Y": 261,
+            "Width": 78,
+            "Height": 20,
+            "RelativeFilename": "pipe1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "pipe2",
+            "X": 46,
+            "Y": 139,
+            "Width": 78,
+            "Height": 20,
+            "RelativeFilename": "pipe1_on.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "pipe1",
+            "X": 157,
+            "Y": 140,
+            "Width": 78,
+            "Height": 20,
+            "RelativeFilename": "pipe1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "pump",
+            "X": 355,
+            "Y": 245,
+            "Width": 65,
+            "Height": 52,
+            "RelativeFilename": "pump.png",
+            "Clickable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "valve",
+            "X": 114,
+            "Y": 116,
+            "Width": 52,
+            "Height": 50,
+            "RelativeFilename": "valve.png",
+            "Clickable": true
+          },
+          {
+            "Type": "BoxProgress",
+            "Name": "boiler",
+            "X": 456,
+            "Y": 151,
+            "Width": 82,
+            "Height": 157,
+            "Color": {
+              "Red": 39,
+              "Green": 154,
+              "Blue": 241
+            },
+            "Direction": "Up",
+            "FileNameBackground": "boiler.png",
+            "IndicatorPositionX": 3,
+            "IndicatorPositionY": 14,
+            "IndicatorPositionWidth": 76,
+            "IndicatorPositionHeight": 129,
+            "ProgressRangeMax": 1000,
+            "ProgressInitialValue": 500
           },
           {
             "Type": "DynamicGraph",
-            "Name": "dynamicGraph",
-            "X": 507,
-            "Y": 310,
-            "Width": 251,
-            "Height": 129,
-            "DataSeed": 100161584,
-            "NumberOfValues": 100,
-            "MaxY": 100.0,
-            "Precision": "0.1",
-            "LastIndex": 99,
+            "Name": "boilerGraph",
+            "X": 459,
+            "Y": 166,
+            "Width": 77,
+            "Height": 128,
+            "DataSeed": -535331536,
+            "NumberOfValues": 60,
+            "MaxY": 1.0,
+            "Precision": "0.01",
+            "LastIndex": 59,
             "XAxisScale": 1.0,
             "InsertRandomValues": true,
             "GraphType": "GraphScroll",
             "GraphDrawers": [
               {
                 "Type": "LineDrawer",
-                "LineWidth": 3,
+                "LineWidth": 2,
                 "Color": {
-                  "Red": 20,
-                  "Green": 151,
-                  "Blue": 197
+                  "Red": 235,
+                  "Green": 240,
+                  "Blue": 246
                 }
               }
             ]
           },
           {
+            "Type": "BoxProgress",
+            "Name": "mainTank",
+            "X": 219,
+            "Y": 94,
+            "Width": 112,
+            "Height": 214,
+            "Color": {
+              "Red": 39,
+              "Green": 154,
+              "Blue": 241
+            },
+            "Direction": "Up",
+            "FileNameBackground": "main_tank.png",
+            "IndicatorPositionX": 3,
+            "IndicatorPositionY": 18,
+            "IndicatorPositionWidth": 106,
+            "IndicatorPositionHeight": 178,
+            "ProgressRangeMax": 1000,
+            "ProgressInitialValue": 500
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "mainTankGraph",
+            "X": 222,
+            "Y": 111,
+            "Width": 108,
+            "Height": 178,
+            "DataSeed": -535331536,
+            "NumberOfValues": 60,
+            "MaxY": 1.0,
+            "Precision": "0.01",
+            "LastIndex": 59,
+            "XAxisScale": 1.0,
+            "InsertRandomValues": true,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "Color": {
+                  "Red": 235,
+                  "Green": 240,
+                  "Blue": 246
+                }
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mainTankText",
+            "X": 235,
+            "Y": 63,
+            "Width": 81,
+            "Height": 18,
+            "TextId": "__SingleUse_5QSG",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 111,
+              "Green": 121,
+              "Blue": 174
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "waterSourceText1",
+            "X": 48,
+            "Y": 179,
+            "Width": 48,
+            "Height": 18,
+            "TextId": "__SingleUse_XVK6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 111,
+              "Green": 121,
+              "Blue": 174
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "waterSourceText2",
+            "X": 47,
+            "Y": 199,
+            "Width": 54,
+            "Height": 18,
+            "TextId": "__SingleUse_8LSH",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 111,
+              "Green": 121,
+              "Blue": 174
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "boilerText",
+            "X": 548,
+            "Y": 276,
+            "Width": 46,
+            "Height": 18,
+            "TextId": "__SingleUse_2ZVO",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 111,
+              "Green": 121,
+              "Blue": 174
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mainTankTempText",
+            "X": 354,
+            "Y": 112,
+            "Width": 100,
+            "Height": 18,
+            "TextId": "__SingleUse_4C4U",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 235,
+              "Green": 240,
+              "Blue": 246
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "Image",
+            "Name": "mainTankTempIcon",
+            "X": 340,
+            "Y": 114,
+            "Width": 8,
+            "Height": 15,
+            "RelativeFilename": "thermometer_icon.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "boilerTempIcon",
+            "X": 438,
+            "Y": 172,
+            "Width": 8,
+            "Height": 15,
+            "RelativeFilename": "thermometer_icon.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "boilerTempText",
+            "X": 342,
+            "Y": 169,
+            "Width": 90,
+            "Height": 18,
+            "TextId": "__SingleUse_SO94",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 235,
+              "Green": 240,
+              "Blue": 246
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pressureText",
+            "X": 500,
+            "Y": 33,
+            "Width": 100,
+            "Height": 18,
+            "TextId": "__SingleUse_6HH0",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 235,
+              "Green": 240,
+              "Blue": 246
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "Image",
+            "Name": "gaugePart",
+            "X": 544,
+            "Y": 97,
+            "Width": 13,
+            "Height": 41,
+            "RelativeFilename": "gaugePart.png"
+          },
+          {
             "Type": "Gauge",
-            "Name": "gauge",
-            "X": 515,
-            "Y": 25,
-            "Width": 251,
-            "Height": 251,
-            "FileNameBackground": "__designer\\Blue_Gauges_original_gauge_background_style_01.png",
-            "RotationCenterX": 125,
-            "RotationCenterY": 125,
-            "StartAngle": -85,
-            "EndAngle": 85,
-            "RangeMax": 100,
-            "InitialValue": 50,
+            "Name": "pressureGauge",
+            "X": 527,
+            "Y": 59,
+            "Width": 46,
+            "Height": 46,
+            "FileNameBackground": "gauge.png",
+            "RotationCenterX": 23,
+            "RotationCenterY": 23,
+            "StartAngle": -175,
+            "EndAngle": 175,
+            "RangeMin": 500,
+            "RangeMax": 4000,
+            "InitialValue": 2500,
             "UseAnimation": true,
             "Easing": "Cubic",
             "EasingOption": "InOut",
-            "FileNameNeedle": "__designer\\Blue_Needles_original_gauge_needle_style_01.png",
-            "NeedleRotationCenterX": 11,
-            "NeedleRotationCenterY": 55,
+            "FileNameNeedle": "needle.png",
+            "NeedleRotationCenterX": 3,
+            "NeedleRotationCenterY": 10,
             "NeedleMovingRenderingAlgorithm": "Nearest-neighbor",
             "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
             "UseArc": true,
-            "FileNameArc": "__designer\\Blue_Gauges_original_gauge_fill_style_01.png",
             "ArcColor": {
-              "Red": 20,
-              "Green": 151,
-              "Blue": 197
+              "Red": 200,
+              "Green": 205,
+              "Blue": 219
             },
-            "SetArcPosition": true,
-            "ArcX": 28,
-            "ArcY": 30,
-            "ArcWidth": 196,
-            "ArcHeight": 88,
-            "ArcRadius": 94,
-            "ArcLineWidth": 14,
+            "ArcRadius": 14,
+            "ArcLineWidth": 4,
             "ArcCapStyle": "Butt"
+          },
+          {
+            "Type": "Image",
+            "Name": "turbine",
+            "X": 603,
+            "Y": 91,
+            "Width": 144,
+            "Height": 59,
+            "RelativeFilename": "turbine.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "energyText",
+            "X": 676,
+            "Y": 66,
+            "Width": 100,
+            "Height": 18,
+            "TextId": "__SingleUse_G52X",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 235,
+              "Green": 240,
+              "Blue": 246
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "Image",
+            "Name": "energyIcon",
+            "X": 660,
+            "Y": 68,
+            "Width": 9,
+            "Height": 15,
+            "RelativeFilename": "energy_icon.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "turbineText",
+            "X": 660,
+            "Y": 161,
+            "Width": 61,
+            "Height": 18,
+            "TextId": "__SingleUse_YLIN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 111,
+              "Green": 121,
+              "Blue": 174
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "AnimatedImage",
+            "Name": "turbineHead",
+            "X": 616,
+            "Y": 101,
+            "Width": 24,
+            "Height": 39,
+            "FileNameFirst": "turbine_head_01.png",
+            "FileNameLast": "turbine_head_02.png",
+            "UpdateTicksInterval": 100,
+            "StartOnLoad": true,
+            "LoopEnabled": true
+          },
+          {
+            "Type": "Image",
+            "Name": "logosImage",
+            "X": 657,
+            "Y": 237,
+            "Width": 82,
+            "Height": 60,
+            "RelativeFilename": "loghi.png"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "console",
+            "Y": 308,
+            "Width": 800,
+            "Height": 173,
+            "CustomContainerDefinitionName": "ConsoleContainer"
+          },
+          {
+            "Type": "Image",
+            "Name": "fire",
+            "X": 483,
+            "Y": 316,
+            "Width": 28,
+            "Height": 36,
+            "RelativeFilename": "fire.png",
+            "Clickable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "processorIcon",
+            "X": 713,
+            "Y": 17,
+            "Width": 16,
+            "Height": 16,
+            "RelativeFilename": "processor.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "X": 35,
+            "Y": 18,
+            "Width": 13,
+            "Height": 15,
+            "RelativeFilename": "calendar.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image2",
+            "X": 166,
+            "Y": 19,
+            "Width": 15,
+            "Height": 14,
+            "RelativeFilename": "clock.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dateText",
+            "X": 54,
+            "Y": 17,
+            "Width": 100,
+            "Height": 18,
+            "TextId": "__SingleUse_L1QM",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 12
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "clockText",
+            "X": 188,
+            "Y": 17,
+            "Width": 120,
+            "Height": 18,
+            "TextId": "__SingleUse_HEXI",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cpuUsageText",
+            "X": 735,
+            "Y": 16,
+            "Width": 28,
+            "Height": 18,
+            "TextId": "__SingleUse_8QM6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          }
+        ],
+        "Interactions": []
+      },
+      {
+        "Name": "DebugScreen",
+        "CanvasBufferSize": 12000,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "backgroundBox",
+            "Width": 800,
+            "Height": 480
           },
           {
             "Type": "Button",
@@ -104,51 +596,46 @@
             "DisplayLeadingZeroForHourIndicator": true
           },
           {
-            "Type": "Line",
-            "Name": "yAxisLine",
-            "X": 500,
-            "Y": 303,
-            "Width": 30,
-            "Height": 163,
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
+            "Type": "Gauge",
+            "Name": "gauge",
+            "X": 466,
+            "Y": 21,
+            "Width": 251,
+            "Height": 251,
+            "FileNameBackground": "__designer\\Blue_Gauges_original_gauge_background_style_01.png",
+            "RotationCenterX": 125,
+            "RotationCenterY": 125,
+            "StartAngle": -90,
+            "EndAngle": 90,
+            "RangeMax": 100,
+            "InitialValue": 50,
+            "UseAnimation": true,
+            "Easing": "Linear",
+            "EasingOption": "In",
+            "FileNameNeedle": "__designer\\Blue_Needles_original_gauge_needle_style_00.png",
+            "NeedleRotationCenterX": 11,
+            "NeedleRotationCenterY": 55,
+            "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
+            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+            "UseArc": true,
+            "ArcColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
             },
-            "StartX": 8,
-            "StartY": 6,
-            "EndX": 7,
-            "EndY": 138,
-            "LineWidth": 3,
-            "LineEndingStyle": "Round"
-          },
-          {
-            "Type": "Line",
-            "Name": "xAxisLine",
-            "X": 496,
-            "Y": 432,
-            "Width": 266,
-            "Height": 34,
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "StartX": 8,
-            "StartY": 6,
-            "EndX": 400,
-            "EndY": 6,
-            "LineWidth": 3,
-            "LineEndingStyle": "Round"
+            "ArcRadius": 93,
+            "ArcLineWidth": 10,
+            "ArcCapStyle": "Round",
+            "ArcOnTopOfNeedle": true
           },
           {
             "Type": "TextArea",
-            "Name": "valueText",
-            "X": 739,
-            "Y": 291,
-            "Width": 19,
-            "Height": 12,
-            "TextId": "__SingleUse_4PND",
+            "Name": "gaugeDescriptionText",
+            "X": 498,
+            "Y": 281,
+            "Width": 186,
+            "Height": 24,
+            "TextId": "__SingleUse_7NIY",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -173,7 +660,323 @@
         ]
       }
     ],
-    "CustomContainerDefinitions": [],
+    "CustomContainerDefinitions": [
+      {
+        "Name": "ConsoleContainer",
+        "Y": 307,
+        "Width": 800,
+        "Height": 173,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "X": 27,
+            "Y": 59,
+            "Width": 747,
+            "Height": 114,
+            "Color": {
+              "Red": 64,
+              "Green": 72,
+              "Blue": 115
+            }
+          },
+          {
+            "Type": "Circle",
+            "Name": "backgroundLeft",
+            "X": 27,
+            "Y": 49,
+            "Width": 20,
+            "Height": 20,
+            "Color": {
+              "Red": 64,
+              "Green": 72,
+              "Blue": 115
+            },
+            "CenterX": 10,
+            "CenterY": 10,
+            "Radius": 10,
+            "EndAngle": 360,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "Circle",
+            "Name": "backgroundRight",
+            "X": 754,
+            "Y": 49,
+            "Width": 20,
+            "Height": 20,
+            "Color": {
+              "Red": 64,
+              "Green": 72,
+              "Blue": 115
+            },
+            "CenterX": 10,
+            "CenterY": 10,
+            "Radius": 10,
+            "EndAngle": 360,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "Box",
+            "Name": "backgroundTop",
+            "X": 37,
+            "Y": 49,
+            "Width": 727,
+            "Height": 20,
+            "Color": {
+              "Red": 64,
+              "Green": 72,
+              "Blue": 115
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "consoleTitle",
+            "X": 27,
+            "Y": 25,
+            "Width": 63,
+            "Height": 18,
+            "TextId": "__SingleUse_77SV",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 111,
+              "Green": 121,
+              "Blue": 174
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line1",
+            "X": 37,
+            "Y": 59,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_P3TH",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line2",
+            "X": 37,
+            "Y": 68,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_9WFZ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line3",
+            "X": 37,
+            "Y": 77,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_H6NY",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line4",
+            "X": 37,
+            "Y": 86,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_WKBQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line5",
+            "X": 37,
+            "Y": 95,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_EX5Q",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line6",
+            "X": 37,
+            "Y": 104,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_0KBR",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line7",
+            "X": 37,
+            "Y": 113,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_1EOB",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line8",
+            "X": 37,
+            "Y": 122,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_9UB8",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line9",
+            "X": 37,
+            "Y": 131,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_R2FF",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line10",
+            "X": 37,
+            "Y": 140,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_1CKO",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line11",
+            "X": 37,
+            "Y": 149,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_7HOC",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "line12",
+            "X": 37,
+            "Y": 158,
+            "Width": 727,
+            "Height": 8,
+            "TextId": "__SingleUse_V34E",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 154,
+              "Green": 171,
+              "Blue": 196
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 148
+            }
+          }
+        ],
+        "Interactions": []
+      }
+    ],
     "Name": "stm-opc",
     "Resolution": {
       "Width": 800,
